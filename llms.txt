@@ -1,35 +1,27 @@
-# fall-euaiact SDK
+# fall-euaiact-sdk
 
-> Companion SDK for fall-euaiact · minted by mint-all · sovereign estate · SDK on npm · MIT-licensed · Ed25519-signed · listed on FallMarket.
+> EU AI Act toolkit as a JavaScript library: the gated risk classifier the fall-euaiact page runs, obligations and dates after Regulation (EU) 2026/1744, an Article 12 audit log, Annex IV documents and Article 50 badges, Ed25519 signing. MIT.
 
-fall-euaiact SDK is a sovereign tool built by the AI-Native Solutions guild. It runs on your machine, ships with source, and never phones home.
+Live page: https://sjgant80-hub.github.io/fall-euaiact-sdk/
+Source: https://github.com/sjgant80-hub/fall-euaiact-sdk
+Install: npm install github:sjgant80-hub/fall-euaiact-sdk
+Product page: https://sjgant80-hub.github.io/fall-euaiact/
 
-## Canonical URL
+## Exports
 
-https://sjgant80-hub.github.io/fall-euaiact-sdk/
+- classifyText(text) · classify(text): The risk tier with articles, triggers and confidence. classifyText never throws; classify keeps the older result shape and rejects an empty description.
+- obligationsFor(tier) · deadlineFor(tier): What the tier requires and the date it applies from.
+- assess(text, { at }) · verifyAssessment(a): Seal a verdict; check a sealed verdict was not altered.
+- deepClassify(text, { provider, apiKey, model }): A second opinion from a model you choose (Anthropic, OpenAI or Google), with your own key. The Anthropic default is claude-opus-5-5.
+- ARTICLES · DEADLINES · PENALTIES · ANNEX_III_CATEGORIES · searchArticles · getArticle · articlesForTier: The article navigator.
+- createAuditShim({ sink, dbName }): An Article 12 event log: log, exportAll, verifyChain, clear.
+- createAnnexIV(values) · generateAnnexIV · validateValues · DOC_FIELDS: Annex IV technical documentation: Markdown, HTML or JSON, in six languages, and signable.
+- createTransparencyBadge({ category, language, … }): An accessible Article 50 disclosure, with an impression log and a signed configuration.
+- generateKeypair · sign · verify: Ed25519 with the platform's WebCrypto; accepts 32-byte seeds and libsodium's 64-byte keys.
 
-## Category
+## Limits
 
-SDK on npm. Part of the FallMarket sovereign agent marketplace (https://sjgant80-hub.github.io/fallmarket/).
-
-## Install
-
-```
-npm install @ai-native-solutions/fall-euaiact-sdk
-```
-
-## License
-
-MIT · Copyright 2026 AI-Native Solutions
-
-## Related
-
-- FallMarket registry entry: https://sjgant80-hub.github.io/fallmarket/listing.html?id=fall-euaiact-sdk
-- Source: https://github.com/sjgant80-hub/fall-euaiact-sdk
-- FallMarket catalog: https://sjgant80-hub.github.io/fallmarket/
-- Machine-readable catalog: https://sjgant80-hub.github.io/fallmarket/listings.json
-- Owner: AI-Native Solutions · https://ai-nativesolutions.com
-
-## About AI-Native Solutions
-
-AI-Native Solutions builds sovereign single-file AI tools, MCP servers, SDKs, and HTTP APIs. All work is MIT, all is Ed25519-signed, all is discoverable via FallMarket. This tool is one entry in a 766-listing catalog.
+- The classifier matches phrases. A system described in unusual words can be missed; the November 2026 repair widened two Article 5 rules (emotion recognition at work or in education, live facial recognition by police in public) after both were found slipping through.
+- Real-time remote biometric identification by police in public is classified prohibited; retrospective identification is high-risk instead, and the verdict says so.
+- deepClassify's OpenAI and Google default models are older and may be retired: pass model for those providers.
+- Annex IV output is a starting draft; the badge text meets Article 50's aim but you decide where and when it is shown.

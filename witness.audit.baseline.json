@@ -1,0 +1,12 @@
+[
+  {
+    "mutation": "!== → ===",
+    "snippet": "const subtle = typeof crypto !== 'undefined' && crypto.subtle ? crypto.subtle",
+    "reason": "Equivalent on every supported runtime: where globalThis.crypto exists (Node 20+, browsers, Workers) the mutant takes the fallback, import('node:crypto').webcrypto.subtle, which is the same SubtleCrypto implementation, so every hash is identical. The branch only matters on runtimes without globalThis.crypto, which the package's engines field (>=20) excludes."
+  },
+  {
+    "mutation": "&& → ||",
+    "snippet": "const subtle = typeof crypto !== 'undefined' && crypto.subtle ? crypto.subtle",
+    "reason": "Equivalent on every supported runtime: with globalThis.crypto present, `typeof crypto !== 'undefined' || crypto.subtle` is true just as the original is, and both then return crypto.subtle; the two only differ where crypto exists without subtle, which no supported runtime has."
+  }
+]

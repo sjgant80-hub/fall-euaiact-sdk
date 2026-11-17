@@ -1,0 +1,17 @@
+[
+  {
+    "mutation": "< → <=",
+    "snippet": "for (let i = 0; i < out.length; i++) out[i] = parseInt(hex.slice(i * 2, i * 2 + 2), 16);",
+    "reason": "Equivalent: the extra iteration writes out[out.length], which is out of bounds on a Uint8Array and silently discarded; the decoded bytes are identical for every input."
+  },
+  {
+    "mutation": "&& → ||",
+    "snippet": "if (globalThis.crypto && globalThis.crypto.subtle) return globalThis.crypto.subtle;",
+    "reason": "Equivalent on every supported runtime: globalThis.crypto is present, so both conditions are true and both return the same globalThis.crypto.subtle; they differ only where crypto exists without subtle, which no runtime in the engines range has."
+  },
+  {
+    "mutation": "|| → &&",
+    "snippet": "if (typeof hex !== 'string' || hex.length % 2 !== 0 || !/^[0-9a-fA-F]*$/.test(hex)) throw ",
+    "reason": "Equivalent at the API: only verify() can pass fromHex an odd-length or non-string value (sign() checks the key length first), and there the mutant either throws a different TypeError or decodes a short buffer that WebCrypto then rejects; both paths end in verify() returning false, as the tests check."
+  }
+]

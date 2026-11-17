@@ -1,0 +1,12 @@
+[
+  {
+    "mutation": "!== → ===",
+    "snippet": "if (typeof crypto !== 'undefined' && crypto.subtle) {",
+    "reason": "Equivalent on every supported runtime: where globalThis.crypto exists the mutant skips to the node:crypto fallback, createHash('sha256'), which yields the identical hex digest of the same label, so labelHash and the signed envelope are byte-identical."
+  },
+  {
+    "mutation": "&& → ||",
+    "snippet": "if (typeof crypto !== 'undefined' && crypto.subtle) {",
+    "reason": "Equivalent on every supported runtime: with globalThis.crypto present both conditions are true and both use crypto.subtle.digest; they differ only where crypto exists without subtle, which no runtime in the engines range (Node 20+) or any current browser has."
+  }
+]

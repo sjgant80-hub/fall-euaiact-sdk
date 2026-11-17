@@ -1,24 +1,50 @@
 {
   "name": "@ai-native-solutions/fall-euaiact-sdk",
-  "version": "1.0.0",
-  "description": "fall-euaiact SDK · sovereign single-file library extracted from fall-euaiact/index.html",
+  "version": "1.2.0",
+  "description": "EU AI Act toolkit as a JavaScript library: the gated risk classifier the fall-euaiact page runs, obligations and dates after Regulation (EU) 2026/1744, an Article 12 audit log, Annex IV documents and Article 50 badges, Ed25519 signing. MIT.",
   "type": "module",
   "main": "src/index.js",
   "types": "src/index.d.ts",
-  "files": ["src", "docs", "README.md", "LICENSE"],
-  "scripts": {
-    "test": "node --test test/",
-    "smoke": "node examples/smoke.js"
+  "exports": {
+    ".": {
+      "types": "./src/index.d.ts",
+      "import": "./src/index.js"
+    },
+    "./kernel": "./src/kernel.js",
+    "./classifier": "./src/classifier.js",
+    "./articles": "./src/articles.js",
+    "./audit": "./src/audit.js",
+    "./docgen": "./src/docgen.js",
+    "./transparency": "./src/transparency.js",
+    "./sign": "./src/sign.js"
   },
-  "keywords": ["fall-euaiact", "sdk", "sovereign", "ai-native-solutions"],
-  "author": "AI-Native Solutions",
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "test": "node --test test/kernel.test.js test/sdk.test.js",
+    "example": "node examples/basic.js",
+    "parity": "node scripts/parity.mjs"
+  },
+  "keywords": [
+    "eu-ai-act",
+    "ai-regulation",
+    "compliance",
+    "annex-iv",
+    "article-50",
+    "article-12",
+    "sdk"
+  ],
+  "author": "AI Native Solutions",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/sjgant80-hub/fall-euaiact-sdk.git"
   },
-  "homepage": "https://sjgant80-hub.github.io/fall-euaiact-sdk/",
-  "publishConfig": {
-    "access": "public"
-  }
+  "homepage": "https://sjgant80-hub.github.io/fall-euaiact-sdk/"
 }

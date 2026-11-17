@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>EU AI Act SDK</title>
+<meta name="description" content="EU AI Act toolkit as a JavaScript library: the gated risk classifier the fall-euaiact page runs, obligations and dates after Regulation (EU) 2026/1744, an Article 12 audit log, Annex IV documents and Article 50 badges, Ed25519 signing. MIT.">
+<link rel="canonical" href="https://sjgant80-hub.github.io/fall-euaiact-sdk/">
+<style>
+:root{--bg:#f7f6f2;--panel:#ffffff;--ink:#1d1d22;--ink-2:#55555f;--line:#dcd9d0;--accent:#7a4a12;--accent-soft:#f4ead9;--ok:#1d6b3a;--warn:#8a5a00;--code:#f0eee8;color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121317;--panel:#1b1d23;--ink:#ecebe7;--ink-2:#a9a8b3;--line:#30323b;--accent:#e0a45a;--accent-soft:#2a2216;--ok:#6fd08f;--warn:#e7b85c;--code:#22242b;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121317;--panel:#1b1d23;--ink:#ecebe7;--ink-2:#a9a8b3;--line:#30323b;--accent:#e0a45a;--accent-soft:#2a2216;--ok:#6fd08f;--warn:#e7b85c;--code:#22242b;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:920px;margin:0 auto;padding:24px 16px 64px}
+h1{font-size:clamp(26px,5vw,38px);line-height:1.15;margin:8px 0 12px}
+h2{font-size:22px;margin:44px 0 12px;padding-top:8px;border-top:1px solid var(--line)}
+h3{font-size:17px;margin:22px 0 8px}
+p,li{max-width:72ch}
+a{color:var(--accent)}
+.lede{font-size:18px;color:var(--ink)}
+.kicker{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-2);margin:0}
+nav.toc{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:14px;margin:16px 0 8px}
+pre,code,.mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:14px}
+pre{background:var(--code);border:1px solid var(--line);border-radius:10px;padding:12px 14px;overflow-x:auto;white-space:pre}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;margin:12px 0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+table{width:100%;border-collapse:collapse;font-size:15px;display:block;overflow-x:auto}
+td,th{border-bottom:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{font-size:13px;color:var(--ink-2);font-weight:600}
+label{display:block;font-size:14px;color:var(--ink-2);margin:10px 0 4px}
+input,select,textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:9px 10px}
+textarea{min-height:90px}
+button{font:inherit;font-weight:600;color:#fff;background:var(--accent);border:0;border-radius:8px;padding:10px 16px;margin-top:12px;cursor:pointer}
+:root[data-theme="dark"] button{color:#1b1407}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) button{color:#1b1407}}
+button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,a:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.out{white-space:pre-wrap;word-break:break-word;background:var(--code);border:1px solid var(--line);border-radius:10px;padding:12px;min-height:48px;font-size:14px}
+.pill{display:inline-block;font-size:13px;font-weight:600;border-radius:999px;padding:2px 10px;border:1px solid var(--line)}
+.ok{color:var(--ok)}.warn{color:var(--warn)}
+.diagram{width:100%;height:auto;max-width:760px}
+.theme{float:right;margin-top:0;background:transparent;color:var(--ink-2);border:1px solid var(--line);font-weight:500;padding:6px 10px}
+footer{margin-top:48px;font-size:14px;color:var(--ink-2)}
+</style>
+</head>
+<body>
+<main>
+<button class="theme" id="theme" type="button" aria-label="Switch light or dark">Theme</button>
+<p class="kicker">JavaScript SDK · MIT · zero dependencies</p>
+<h1>EU AI Act SDK</h1>
+<p class="lede">A JavaScript library for working with the EU AI Act: the <strong>risk classifier</strong> the fall-euaiact page runs (prohibited, high, limited or minimal, with the articles that apply), the <strong>obligations and the dates they apply from</strong> as amended by Regulation (EU) 2026/1744, <strong>sealed assessments</strong> anyone can check, an <strong>Article 12 audit log</strong> with a hash chain, <strong>Annex IV technical documentation</strong> in six languages, an <strong>Article 50 disclosure badge</strong>, and <strong>Ed25519 signing</strong> with the platform's own cryptography.</p>
+<p>It is the <a href="https://sjgant80-hub.github.io/fall-euaiact/">fall-euaiact</a> page's own code, taken out so a developer, or an AI agent, can call it directly. The classifier is a keyword heuristic grounded in the Regulation: a documented starting point, not a legal judgment.</p>
+<nav class="toc" aria-label="On this page"><a href="#start">Start here</a><a href="#try">Try it</a><a href="#how">How it works</a><a href="#api">API</a><a href="#blueprint">Blueprint</a><a href="#business">For your business</a><a href="#risks">Risks, straight</a><a href="#proof">Proof</a><a href="#paper">The explainer</a></nav>
+
+<h2 id="start">Start here</h2>
+<ol>
+<li>Install it from GitHub (it is not on the npm registry): <pre>npm install github:sjgant80-hub/fall-euaiact-sdk</pre></li>
+<li>Import what you need and call it:<pre>import { classifyText, obligationsFor, assess, verifyAssessment, createAuditShim } from '@ai-native-solutions/fall-euaiact-sdk';
+
+const r = classifyText('An AI system that screens CVs for a recruitment agency.');
+// { tier: 'high', articles: ['Annex III(4)'], confidencePct: 60, ... }
+obligationsFor(r.tier).deadline;           // '2027-12-02'
+const sealed = assess('An AI system that screens CVs…', { at: '2026-11-17' });
+verifyAssessment(sealed).valid;            // true, and false if anything in it is changed
+const log = createAuditShim();             // IndexedDB in a browser, memory in Node</pre></li>
+<li>Or use it in a browser page with no install: <pre>import * as sdk from 'https://sjgant80-hub.github.io/fall-euaiact-sdk/src/index.js';</pre></li>
+<li>Pin a commit for production (<code>npm install github:sjgant80-hub/fall-euaiact-sdk#&lt;commit&gt;</code>) so what you tested is what runs.</li>
+</ol>
+
+<h2 id="try">Try it</h2>
+<p>These panels run the SDK's own <code>src/</code> in your browser: the same files the tests and the mutation gate prove. Nothing you type leaves this page.</p>
+<div class="card"><h3>Classify a system</h3>
+<label for="d">Describe the AI system in plain words</label><textarea id="d"></textarea>
+<label for="s">Or start from an example</label><select id="s"></select>
+<button id="go" type="button">Classify and seal</button>
+<div class="grid" style="margin-top:12px"><div><p class="kicker">Verdict</p><div class="out" id="v" aria-live="polite">Press the button.</div></div>
+<div><p class="kicker">Sealed assessment</p><div class="out" id="seal"></div></div></div>
+<button id="tamper" type="button">Change the tier in the sealed copy and re-check</button>
+<div class="out" id="tout" aria-live="polite" style="margin-top:8px"></div></div>
+<div class="card"><h3>Article 50 disclosure badge</h3>
+<label for="cat">What the user is shown</label><select id="cat"></select>
+<label for="lang">Language</label><select id="lang"><option>en</option><option>de</option><option>fr</option><option>es</option><option>it</option><option>nl</option></select>
+<button id="badge" type="button">Show the badge</button>
+<div id="bout" style="margin-top:12px" aria-live="polite"></div></div>
+
+<h2 id="how">How it works</h2>
+<svg viewBox="0 0 760 250" role="img" aria-labelledby="dg-t dg-d" class="diagram">
+<title id="dg-t">How the SDK and the live page stay one program</title>
+<desc id="dg-d">The product page and this SDK carry the same code. Tests and a mutation gate prove that code; a parity check fails the build if the page and the SDK ever differ. Your code, or an AI agent, imports the proven module.</desc>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="var(--ink-2)"/></marker></defs>
+<g font-family="inherit" font-size="13">
+<rect x="10" y="20" width="200" height="70" rx="10" fill="var(--panel)" stroke="var(--line)"/>
+<text x="110" y="48" text-anchor="middle" fill="var(--ink)" font-weight="600">fall-euaiact page</text>
+<text x="110" y="68" text-anchor="middle" fill="var(--ink-2)">the product people use</text>
+<rect x="280" y="20" width="200" height="70" rx="10" fill="var(--accent-soft)" stroke="var(--accent)"/>
+<text x="380" y="48" text-anchor="middle" fill="var(--ink)" font-weight="600">fall-euaiact-sdk</text>
+<text x="380" y="68" text-anchor="middle" fill="var(--ink-2)">the same code, as modules</text>
+<rect x="550" y="20" width="200" height="70" rx="10" fill="var(--panel)" stroke="var(--line)"/>
+<text x="650" y="48" text-anchor="middle" fill="var(--ink)" font-weight="600">your code · an agent</text>
+<text x="650" y="68" text-anchor="middle" fill="var(--ink-2)">import, call, get the answer</text>
+<line x1="212" y1="55" x2="276" y2="55" stroke="var(--ink-2)" stroke-width="1.5" marker-end="url(#ar)" marker-start="url(#ar)"/>
+<text x="244" y="45" text-anchor="middle" fill="var(--ink-2)" font-size="11">parity</text>
+<line x1="482" y1="55" x2="546" y2="55" stroke="var(--ink-2)" stroke-width="1.5" marker-end="url(#ar)"/>
+<text x="514" y="45" text-anchor="middle" fill="var(--ink-2)" font-size="11">import</text>
+<rect x="190" y="160" width="380" height="70" rx="10" fill="var(--panel)" stroke="var(--line)" stroke-dasharray="5 4"/>
+<text x="380" y="188" text-anchor="middle" fill="var(--ink)" font-weight="600">the gate, on every push</text>
+<text x="380" y="208" text-anchor="middle" fill="var(--ink-2)">tests · mutation gate must be clean · fuzz · parity</text>
+<line x1="380" y1="158" x2="380" y2="94" stroke="var(--ink-2)" stroke-width="1.5" marker-end="url(#ar)"/>
+</g></svg>
+<ol><li><code>src/kernel.js</code> is a byte copy of the fall-euaiact repository's <code>kernel.mjs</code>: the classifier the live page runs, proven by that repository's tests and mutation gate. <code>classify()</code> is a thin adapter over it. The product's own gate fails if its <code>sdk/kernel.js</code> differs from <code>kernel.mjs</code>, and this repository's parity check fails if <code>src/</code> differs from the product's <code>sdk/</code> by a single byte.</li><li>The classifier runs the Article 5 prohibitions first, then the Annex III high-risk uses, then the Article 50 transparency cases; the first tier with a match wins, so a prohibited use is never softened to high. No match is minimal. Confidence is 40 plus 20 per matching trigger, capped at 95.</li><li>The dates are Article 113 as amended by Regulation (EU) 2026/1744: Article 5 since 2 February 2025; Article 50 from 2 August 2026; high-risk for Annex III systems from 2 December 2027 and for AI in Annex I products from 2 August 2028.</li><li>A sealed assessment hashes the exact text, the tier and the articles together; change any of them and verification fails.</li><li>The audit log chains each entry to the previous one by SHA-256. In a browser it uses IndexedDB; the chain check ignores the key IndexedDB writes into each record (before this repair it did not, so every non-empty browser log reported itself as tampered).</li></ol>
+
+<h2 id="api">API</h2>
+<table><thead><tr><th>Export</th><th>What it does</th></tr></thead><tbody>
+<tr><td class="mono">classifyText(text) · classify(text)</td><td>The risk tier with articles, triggers and confidence. classifyText never throws; classify keeps the older result shape and rejects an empty description.</td></tr>
+<tr><td class="mono">obligationsFor(tier) · deadlineFor(tier)</td><td>What the tier requires and the date it applies from.</td></tr>
+<tr><td class="mono">assess(text, { at }) · verifyAssessment(a)</td><td>Seal a verdict; check a sealed verdict was not altered.</td></tr>
+<tr><td class="mono">deepClassify(text, { provider, apiKey, model })</td><td>A second opinion from a model you choose (Anthropic, OpenAI or Google), with your own key. The Anthropic default is claude-opus-5-5.</td></tr>
+<tr><td class="mono">ARTICLES · DEADLINES · PENALTIES · ANNEX_III_CATEGORIES · searchArticles · getArticle · articlesForTier</td><td>The article navigator.</td></tr>
+<tr><td class="mono">createAuditShim({ sink, dbName })</td><td>An Article 12 event log: log, exportAll, verifyChain, clear.</td></tr>
+<tr><td class="mono">createAnnexIV(values) · generateAnnexIV · validateValues · DOC_FIELDS</td><td>Annex IV technical documentation: Markdown, HTML or JSON, in six languages, and signable.</td></tr>
+<tr><td class="mono">createTransparencyBadge({ category, language, … })</td><td>An accessible Article 50 disclosure, with an impression log and a signed configuration.</td></tr>
+<tr><td class="mono">generateKeypair · sign · verify</td><td>Ed25519 with the platform's WebCrypto; accepts 32-byte seeds and libsodium's 64-byte keys.</td></tr>
+</tbody></table>
+
+<h2 id="blueprint">Blueprint</h2>
+<table><thead><tr><th>File</th><th>What is in it</th></tr></thead><tbody>
+<tr><td class="mono">src/kernel.js</td><td>The gated classifier, obligations, dates and sealed assessments (byte copy of the product's kernel.mjs).</td></tr>
+<tr><td class="mono">src/classifier.js</td><td>classify (adapter over the kernel) and deepClassify.</td></tr>
+<tr><td class="mono">src/articles.js · src/docgen.js · src/transparency.js · src/audit.js · src/sign.js</td><td>Navigator, Annex IV, Article 50, Article 12, Ed25519.</td></tr>
+<tr><td class="mono">src/index.js · src/index.d.ts</td><td>The barrel and the TypeScript types.</td></tr>
+<tr><td class="mono">test/ · scripts/parity.mjs · witness.*.baseline.json</td><td>28 tests, the byte-parity check, and the written exemptions.</td></tr>
+</tbody></table>
+
+<h2 id="business">For your business</h2>
+<p>For a company that builds, buys or deploys AI in the EU: a first, explainable view of where each system sits under the AI Act, with the dates that apply, and the record-keeping and disclosure pieces you need, inside your own tools.</p>
+<div class="grid"><div class="card"><h3>Chief executive</h3><p>A register of your AI systems with a defensible first classification and the date each obligation lands, before you pay for a full legal review of each one.</p></div><div class="card"><h3>Finance</h3><p>MIT licence, no licence fee, nothing metered, no hosting: the classification and the logs run on your machines.</p></div><div class="card"><h3>Technology and security</h3><p>No dependencies and nothing fetched at runtime (signing used to load a library from a CDN; it now uses the platform's own cryptography). The only outbound call is deepClassify, and only if you call it with your own key.</p></div><div class="card"><h3>Compliance and legal</h3><p>Every verdict names its articles and can be sealed, so a classification on file can be shown not to have been changed later.</p></div><div class="card"><h3>Product and engineering teams</h3><p>An Article 50 badge to drop into a chatbot, an Article 12 log to wire into inference, and an Annex IV draft to start from.</p></div></div>
+<h3>What it costs, against what you pay now</h3>
+<p>No licence fee and nothing metered. Against an AI-governance platform charged per seat or per system, this covers the first classification, the dates, sealing, logging, disclosure and documentation drafts. It does not replace counsel on a borderline system or a notified body where one is required.</p>
+<h3>Security and data protection</h3>
+<p>Everything runs locally except deepClassify, which sends the description you pass to the provider you name, using the key you supply; keys are never stored. The audit log stays in the browser's IndexedDB or in memory. Signatures use WebCrypto Ed25519, matching the RFC 8032 test vector.</p>
+<h3>Compliance</h3>
+<p>A heuristic starting point under Regulation (EU) 2024/1689 as amended by Regulation (EU) 2026/1744, not a legal judgment. Dates were checked against the Council's announcement of the Omnibus (EUR-Lex blocks automated checks).</p>
+<h3>Deployment and roll-out</h3>
+<ol><li>Install from GitHub and pin a commit.</li><li>Classify each AI system in your register with classifyText and seal the result with assess.</li><li>Wire createAuditShim into your inference path, and createTransparencyBadge into anything that talks to users.</li><li>Run <code>npm run parity</code> before each upgrade, and take borderline systems to counsel.</li></ol>
+<h3>Support and ownership</h3>
+<p>Supplied by <a href="https://www.ai-nativesolutions.com">AI Native Solutions</a>. Support, service levels, warranty and liability are agreed per deployment, in that deployment's agreement. The code is MIT-licensed: there is no licence fee, you hold a copy, and it keeps working without us.</p>
+<h3>The case for the board</h3>
+<p>A cheap, owned, evidence-producing first line on the AI Act: classifications that cite their articles and can be proven unaltered, logs whose chain can be checked, and dates that track the amended Regulation. The judgment on hard cases stays with counsel.</p>
+
+<h2 id="risks">Risks, answered straight</h2>
+<ul><li>The classifier matches phrases. A system described in unusual words can be missed; the November 2026 repair widened two Article 5 rules (emotion recognition at work or in education, live facial recognition by police in public) after both were found slipping through.</li><li>Real-time remote biometric identification by police in public is classified prohibited; retrospective identification is high-risk instead, and the verdict says so.</li><li>deepClassify's OpenAI and Google default models are older and may be retired: pass <code>model</code> for those providers.</li><li>Annex IV output is a starting draft; the badge text meets Article 50's aim but you decide where and when it is shown.</li></ul>
+
+<h2 id="proof">Proof</h2>
+<p>Every push runs the gate on GitHub's own machines: <a href="https://github.com/sjgant80-hub/fall-euaiact-sdk/actions">the run history is public</a>, so you can check each claim below rather than trust it.</p>
+<table><thead><tr><th>Check</th><th>Result at this release</th></tr></thead><tbody>
+<tr><td class="mono">Tests</td><td>28 pass (node --test): 14 for the kernel, 14 for the other modules</td></tr>
+<tr><td class="mono">Mutation gate (witness v0.6)</td><td>kernel 30/31 +1 exemption · classifier 16/16 · articles 10/10 · audit 16/18 +2 · docgen 30/30 · transparency 14/16 +2 · sign 8/11 +3: clean. Every exemption is written in the baseline files with its reason (runtime feature checks that are identical on every supported runtime, and an out-of-bounds typed-array write)</td></tr>
+<tr><td class="mono">Fuzz</td><td>classifyText, obligationsFor, deadlineFor, assess, verifyAssessment, searchArticles, getArticle, articlesForTier, generateAnnexIV and validateValues never throw on garbage input</td></tr>
+<tr><td class="mono">Signing</td><td>RFC 8032 test 1 reproduced byte for byte, with a 32-byte seed and with a 64-byte libsodium key</td></tr>
+<tr><td class="mono">Parity</td><td>src/ equals the product's sdk/ byte for byte; src/kernel.js equals the page's gated kernel.mjs</td></tr>
+<tr><td class="mono">Dependencies · network calls</td><td>none · only deepClassify, only when you call it</td></tr>
+</tbody></table>
+
+<h2 id="paper">The explainer</h2>
+<p>This package used to hold a broken copy of the fall-euaiact page; its main file did not parse. The product repository already had a real SDK folder, but with its own second copy of the classifier, outside the mutation gate, which had drifted from the page. The repair made one classifier: the gated kernel, copied byte for byte, with both repositories refusing any difference.</p>
+<p>Testing every module properly found three real faults. Two Article 5 bans slipped through on everyday phrasing. The audit log's chain check failed on every browser log, because IndexedDB writes its own key into each record. And signing loaded its cryptography from a CDN at runtime, which also never worked in Node. All three are fixed in the product and here.</p>
+<p>The same pass updated the deep classifier's Anthropic default from a retired model to claude-opus-5-5, and made the article search accept anything without throwing.</p>
+
+<footer>
+<p>fall-euaiact-sdk v1.2.0 · MIT, © Simon Gant · <a href="https://github.com/sjgant80-hub/fall-euaiact-sdk">source</a> · <a href="https://sjgant80-hub.github.io/fall-euaiact/">the fall-euaiact page</a> · supplied by <a href="https://www.ai-nativesolutions.com">AI Native Solutions</a></p>
+</footer>
+</main>
+<script>
+(function () {
+  var b = document.getElementById('theme'), r = document.documentElement;
+  try { var t = localStorage.getItem('theme'); if (t) r.setAttribute('data-theme', t); } catch (e) {}
+  b.addEventListener('click', function () {
+    var dark = r.getAttribute('data-theme') ? r.getAttribute('data-theme') === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+    var next = dark ? 'light' : 'dark'; r.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+  });
+})();
+</script>
+<script type="module">
+import * as sdk from './src/index.js';
+const $ = (id) => document.getElementById(id);
+const show = (id, v) => { $(id).textContent = typeof v === 'string' ? v : JSON.stringify(v, null, 2); };
+for (const [i, t] of sdk.SAMPLES.entries()) { const o = document.createElement('option'); o.value = i; o.textContent = t.slice(0, 70) + '…'; $('s').appendChild(o); }
+$('d').value = sdk.SAMPLES[0];
+$('s').addEventListener('change', () => { $('d').value = sdk.SAMPLES[+$('s').value]; });
+let last = null;
+$('go').addEventListener('click', () => {
+  const r = sdk.classifyText($('d').value), o = sdk.obligationsFor(r.tier);
+  last = sdk.assess($('d').value, { at: new Date().toISOString().slice(0, 10) });
+  show('v', r.label + '\nArticles: ' + (r.articles.join(', ') || 'none') + '\nWhy: ' + (r.triggers.map((t) => t.note).join('; ') || 'no trigger matched') + '\n\nApplies from: ' + (o.deadline || 'no specific date') + '\n' + o.action);
+  show('seal', last);
+  show('tout', 'verifyAssessment: ' + JSON.stringify(sdk.verifyAssessment(last)));
+});
+$('tamper').addEventListener('click', () => {
+  if (!last) { show('tout', 'Classify something first.'); return; }
+  const forged = { ...last, tier: last.tier === 'minimal' ? 'high' : 'minimal' };
+  show('tout', 'Original: ' + JSON.stringify(sdk.verifyAssessment(last)) + '\nWith the tier changed to ' + forged.tier + ': ' + JSON.stringify(sdk.verifyAssessment(forged)));
+});
+for (const c of sdk.ARTICLE_50_CATEGORIES) { const o = document.createElement('option'); o.textContent = c; $('cat').appendChild(o); }
+$('badge').addEventListener('click', () => {
+  const b = sdk.createTransparencyBadge({ category: $('cat').value, language: $('lang').value, systemId: 'demo' });
+  $('bout').innerHTML = b.html();
+});
+</script>
+</body>
+</html>
