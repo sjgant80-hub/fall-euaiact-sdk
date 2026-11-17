@@ -87,7 +87,7 @@ function classify(){
   if (bestTier === 'prohibited'){
     html += `<h4>Action</h4><p>Do not deploy in the EU. Re-scope the use case OR remove the prohibited element. If you need to argue an exception, get written legal opinion first.</p>`;
   } else if (bestTier === 'high'){
-    html += `<h4>Action</h4><p>You're in the high-risk regime. Read Articles 8-15 + Article 26 (deployer obligations). Complete the Annex IV documentation checklist below. Compliance deadline: <code>2 Aug 2026</code>.</p>`;
+    html += `<h4>Action</h4><p>You're in the high-risk regime. Read Articles 8-15 + Article 26 (deployer obligations). Complete the Annex IV documentation checklist below. Compliance deadline: <code>2 Dec 2027</code> (Annex III; <code>2 Aug 2028</code> for AI in products covered by Annex I), after Regulation (EU) 2026/1744.</p>`;
   } else if (bestTier === 'limited'){
     html += `<h4>Action</h4><p>Add the transparency disclosure required by Article 50 — see the badge generator below. Most other obligations don't apply.</p>`;
   } else {
